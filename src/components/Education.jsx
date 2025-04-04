@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Plus, Save, X, Trash2, GraduationCap, ChevronDown, ChevronUp} from 'lucide-react';
+import { Eye, EyeOff, Plus, Check, X, Trash2, GraduationCap, ChevronDown, ChevronUp} from 'lucide-react';
 import '../styles/Education.css';
 
 function Education({ education, setEducation }) {
@@ -58,10 +58,11 @@ function Education({ education, setEducation }) {
 
       {expanded && (
         <div className="educationContent">
+            <hr className='hr-border' />
           {education.map((entry, index) => (
             <div key={index} className="educationEntry">
               <div className="entryHeader" onClick={() => setEditingIndex(index)}>
-                <strong>{entry.degree || 'Untitled Degree'}</strong>
+                <h3>{entry.degree || 'Untitled Degree'}</h3>
                 <span
                   className="visibilityToggle"
                   onClick={(e) => {
@@ -80,37 +81,58 @@ function Education({ education, setEducation }) {
                     name="degree"
                     value={entry.degree}
                     onChange={(e) => handleChange(index, e)}
+                    placeholder='Degree | Field of Study'
+                    required
                   />
                   <label>School</label>
                   <input
                     name="school"
                     value={entry.school}
                     onChange={(e) => handleChange(index, e)}
+                    placeholder='School | College | University'
+                    required
                   />
-                  <label>Start Date</label>
-                  <input
-                    type="date"
-                    name="startDate"
-                    value={entry.startDate}
-                    onChange={(e) => handleChange(index, e)}
-                  />
-                  <label>End Date</label>
-                  <input
-                    type="date"
-                    name="endDate"
-                    value={entry.endDate}
-                    onChange={(e) => handleChange(index, e)}
-                  />
+                  <div className="date-container">
+                    <div className="start-date">
+                        <label>Start Date</label>
+                        <input
+                            // type="date"
+                            name="startDate"
+                            value={entry.startDate}
+                            onChange={(e) => handleChange(index, e)}
+                            placeholder='02-04-2023 | 2 April 2023'
+                            required
+                        />
+                    </div>
+                    <div className="end-date">
+                        <label>End Date</label>
+                        <input
+                            // type="date"
+                            name="endDate"
+                            value={entry.endDate}
+                            onChange={(e) => handleChange(index, e)}
+                            placeholder='10-02-2025 | 10 Feb 2025'
+                            required
+                        />
+                    </div>
+                    
+                  </div>
                   <label>Location</label>
                   <input
                     name="location"
                     value={entry.location}
                     onChange={(e) => handleChange(index, e)}
+                    placeholder='Dhaka, Bangladesh | Berlin, Germany'
+                    
                   />
                   <div className="formActions">
-                    <button className="iconButton" onClick={handleSave}><Save size={16} /></button>
-                    <button className="iconButton" onClick={handleCancel}><X size={16} /></button>
-                    <button className="iconButton" onClick={() => handleDelete(index)}><Trash2 size={16} /></button>
+                    <div className="right-btn">
+                      <button className="iconButton dltBtn" onClick={() => handleDelete(index)}><Trash2 className='l-icon' size={16} /> Delete</button>
+                   </div>
+                   <div className="left-btn">
+                        <button className="iconButton saveBtn" onClick={handleSave}><Check className='l-icon' size={16} /> Save </button>
+                        <button className="iconButton cancelBtn" onClick={handleCancel}><X className='l-icon' size={16} />Cancel</button>
+                    </div>
                   </div>
                 </div>
               )}
