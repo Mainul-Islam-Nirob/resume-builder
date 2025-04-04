@@ -1,23 +1,34 @@
-import './App.css'
-import Controller from './components/Controller'
-import Form from './components/Form'
-import Preview from './components/Preview'
+import './App.css';
+import React, { useState } from 'react';
+import Controller from './components/Controller';
+import FormContainer from './components/FormContainer';
+import Preview from './components/Preview';
 
 function App() {
+  const [formData, setFormData] = useState({
+    personalDetails: {
+      fullName: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      summary: '',
+      photo: null,
+    },
+  });
 
   return (
-    <div className='app'>
+    <div className="app">
       <div className="controller">
         <Controller />
       </div>
       <div className="left">
-        <Form />
+        <FormContainer formData={formData} setFormData={setFormData} />
       </div>
-      <div className="right">
-        <Preview />
-      </div>
+     <div className="right">
+      <Preview personalDetails={formData.personalDetails} />
     </div>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
