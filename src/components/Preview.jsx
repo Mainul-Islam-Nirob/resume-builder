@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Preview({ personalDetails }) {
+function Preview({ personalDetails, education }) {
   return (
     <div className="preview">
       <h2>Resume Preview</h2>
@@ -19,6 +19,14 @@ function Preview({ personalDetails }) {
           />
         </div>
       )}
+
+      <h3>Education</h3>
+      {education.filter((edu) => edu.visible).map((edu, index) => (
+        <div key={index} className="education-preview">
+          <p><strong>{edu.degree}</strong> at {edu.school}</p>
+          <p>{edu.startDate} - {edu.endDate}, {edu.location}</p>
+        </div>
+      ))}
     </div>
   );
 }

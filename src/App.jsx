@@ -14,6 +14,7 @@ function App() {
       summary: '',
       photo: null,
     },
+    education: [],
   });
 
   return (
@@ -25,7 +26,7 @@ function App() {
         <FormContainer formData={formData} setFormData={setFormData} />
       </div>
      <div className="right">
-      <Preview personalDetails={formData.personalDetails} />
+      <Preview personalDetails={formData.personalDetails} education = {formData.education} />
     </div>
     </div>
   );

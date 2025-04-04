@@ -1,5 +1,6 @@
 import React from 'react';
 import PersonalDetails from './PersonalDetails'; // Example Form Component
+import Education from './Education';
 
 function FormContainer({ formData, setFormData }) {
   const handlePersonalDetailsChange = (e) => {
@@ -24,12 +25,23 @@ function FormContainer({ formData, setFormData }) {
     }));
   };
 
+  const setEducation = (educationData) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      education: educationData,
+    }));
+  };
+
   return (
     <div className="form-container">
       <PersonalDetails
         personalDetails={formData.personalDetails}
         onChange={handlePersonalDetailsChange}
         onPhotoChange={handlePhotoChange}
+      />
+      <Education
+        education={formData.education}
+        setEducation={setEducation}
       />
     </div>
   );
