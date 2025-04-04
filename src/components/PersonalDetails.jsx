@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {ChevronDown, ChevronUp} from 'lucide-react';
 import '../styles/PersonalDetails.css';
 
 function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
+  const [expanded, setExpanded] = useState(true);
+  
   return (
-    <form className="personalDetails">
-      <h3>Personal Details</h3>
+    <div className="personalDetails">
+    <div className="personalHeader" onClick={() => setExpanded(!expanded)}>
+      <h1>Personal Details</h1>
+      {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+    </div>
 
+    {expanded && (
+      <form className="personalContent">
       <label htmlFor="full-name">Full Name</label>
       <input
         type="text"
@@ -67,6 +75,8 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
         accept="image/*"
       />
     </form>
+    )}
+    </div>
   );
 }
 
