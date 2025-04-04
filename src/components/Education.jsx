@@ -116,9 +116,12 @@ function Education({ education, setEducation }) {
               )}
             </div>
           ))}
+          <div className="buttonContainer">
           <button onClick={addNewEducation} className="addButton">
-            <Plus size={18} /> Add New Education
+            <Plus size={18} /> Education
           </button>
+          </div>
+         
         </div>
       )}
     </div>
