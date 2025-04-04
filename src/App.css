@@ -1,0 +1,24 @@
+.app {
+    display: flex;
+    margin: auto;
+    /* width: 100%; */
+    padding: 32px 24px;
+    gap: 24px;
+    /* max-width: 1500px; */
+}
+
+.controller, .left, .right{
+    border: 2px solid rgb(54, 51, 42);
+}
+
+.controler {
+    width: 5vw;
+}
+
+.left {
+    width: 35vw;
+}
+
+.right {
+    width: 60vw;
+}
