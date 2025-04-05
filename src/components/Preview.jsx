@@ -1,34 +1,62 @@
 import React from 'react';
+import '../styles/Preview.css';
 
-function Preview({ personalDetails, education }) {
+function ResumePreview({ personalDetails, education, experience }) {
   return (
-    <div className="preview">
-      <h2>Resume Preview</h2>
-      <p><strong>Full Name:</strong> {personalDetails.fullName || 'N/A'}</p>
-      <p><strong>Email:</strong> {personalDetails.email || 'N/A'}</p>
-      <p><strong>Phone Number:</strong> {personalDetails.phoneNumber || 'N/A'}</p>
-      <p><strong>Address:</strong> {personalDetails.address || 'N/A'}</p>
-      <p><strong>Summary:</strong> {personalDetails.summary || 'N/A'}</p>
-      {personalDetails.photo && (
-        <div>
-          <strong>Photo:</strong>
+    <div className="resume-preview">
+      {/* Header Section */}
+      <div className="resume-header">
+        {personalDetails.photo && (
           <img
             src={URL.createObjectURL(personalDetails.photo)}
-            alt="Preview"
-            style={{ width: '100px', height: '100px', borderRadius: '8px' }}
+            alt="Profile"
+            className="profile-photo"
           />
+        )}
+        <div className="header-info">
+          <h1>{personalDetails.fullName || 'Full Name'}</h1>
+          <p>{personalDetails.email || 'Email'} | {personalDetails.phoneNumber || 'Phone'} | {personalDetails.address || 'Address'}</p>
+        </div>
+      </div>
+
+      {/* Summary Section */}
+      {personalDetails.summary && (
+        <div className="resume-section">
+          <h2>Summary</h2>
+          <p>{personalDetails.summary}</p>
         </div>
       )}
 
-      <h3>Education</h3>
-      {education.filter((edu) => edu.visible).map((edu, index) => (
-        <div key={index} className="education-preview">
-          <p><strong>{edu.degree}</strong> at {edu.school}</p>
-          <p>{edu.startDate} - {edu.endDate}, {edu.location}</p>
+      {/* Education Section */}
+      {education.filter(edu => edu.visible).length > 0 && (
+        <div className="resume-section">
+          <h2>Education</h2>
+          {education.filter(edu => edu.visible).map((edu, index) => (
+            <div key={index} className="resume-item">
+              <h3>{edu.degree} - <span className='place'>{edu.school}</span></h3>
+              <p>{edu.startDate} - {edu.endDate}</p>
+              <p>{edu.location}</p>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
+
+      {/* Experience Section */}
+      {experience.filter(exp => exp.visible).length > 0 && (
+        <div className="resume-section">
+          <h2>Experience</h2>
+          {experience.filter(exp => exp.visible).map((exp, index) => (
+            <div key={index} className="resume-item">
+              <h3>{exp.title} - <span className='place'>{exp.company}</span></h3>
+              <p>{exp.startDate} - {exp.endDate}</p>
+              <p>{exp.location}</p>
+              <p>{exp.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export default Preview;
+export default ResumePreview;
