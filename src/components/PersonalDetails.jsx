@@ -32,7 +32,7 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
         <label htmlFor="photo">Photo</label>
         <label htmlFor="photo" id='extra-label' className="custom-file-upload">
           <Camera size={18} style={{ marginRight: "6px" }} />
-          Upload Photo
+          Upload
         </label>
           <input
             type="file"
@@ -59,7 +59,7 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
           />
         </div>
         <div className="phn-container">
-        <label htmlFor="phone-number">Phone Number</label>
+        <label htmlFor="phone-number">Phone</label>
         <input
           type="tel"
           id="phone-number"

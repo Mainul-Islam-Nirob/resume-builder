@@ -81,6 +81,16 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .start-date {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .end-date {
+    flex: 1;
+  }
+
   .formActions {
     display: flex;
     margin-top: 1rem;
