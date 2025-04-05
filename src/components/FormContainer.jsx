@@ -2,6 +2,7 @@ import React from 'react';
 import PersonalDetails from './PersonalDetails'; // Example Form Component
 import Education from './Education';
 import Experience from './Experience';
+import '../styles/FormContainer.css';
 
 function FormContainer({ formData, setFormData }) {
   const handlePersonalDetailsChange = (e) => {

@@ -8,15 +8,15 @@ function Controller() {
       <h1 className="controller-title"><FileUser strokeWidth={3} /> Resume <br /> Generator</h1>
 
       <button className="controller-button load-btn">
-        <FilePlus size={18} /> Load Example
+        <FilePlus size={18} /> Example
       </button>
 
       <button className="controller-button clear-btn">
-        <Trash2 size={18} /> Clear Resume
+        <Trash2 size={18} /> Clear
       </button>
 
       <button className="controller-button download-btn">
-        <Download size={18} /> Download Resume
+        <Download size={18} /> Download
       </button>
 
       <button className="controller-button customize-btn">

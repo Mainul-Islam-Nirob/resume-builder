@@ -1,6 +1,5 @@
 .app {
     display: flex;
-    margin-left: 240px; 
     padding: 10px;
     gap: 10px;
 }
