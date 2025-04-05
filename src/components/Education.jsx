@@ -52,7 +52,7 @@ function Education({ education, setEducation }) {
   return (
     <div className="educationSection">
       <div className="educationHeader" onClick={() => setExpanded(!expanded)}>
-        <h1>Education</h1>
+        <h1> <GraduationCap strokeWidth={3} /> Education</h1>
         {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </div>
 

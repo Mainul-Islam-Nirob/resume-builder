@@ -27,6 +27,11 @@
     font-size: 1.5rem;
   }
   
+  .educationHeader svg {
+    vertical-align: middle;
+    padding-bottom: 4px;
+  }
+
   .educationContent {
     padding: 0.5rem 0;
   }

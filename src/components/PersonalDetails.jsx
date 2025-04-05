@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ChevronDown, ChevronUp} from 'lucide-react';
+import {ChevronDown, ChevronUp, Camera, User} from 'lucide-react';
 import '../styles/PersonalDetails.css';
 
 function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
@@ -8,44 +8,70 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
   return (
     <div className="personalDetails">
     <div className="personalHeader" onClick={() => setExpanded(!expanded)}>
-      <h1>Personal Details</h1>
+      <h1>  <User strokeWidth={3} /> Personal Details</h1>
       {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
     </div>
 
     {expanded && (
       <form className="personalContent">
-      <label htmlFor="full-name">Full Name</label>
-      <input
-        type="text"
-        id="full-name"
-        name="fullName"
-        value={personalDetails.fullName}
-        onChange={onChange}
-        placeholder="Enter your full name"
-        required
-      />
+          <hr className='hr-border' />
+      <div className="name-img">
+        <div className="name-container">
+          <label htmlFor="full-name">Full Name</label>
+          <input
+            type="text"
+            id="full-name"
+            name="fullName"
+            value={personalDetails.fullName}
+            onChange={onChange}
+            placeholder="Nirob Chowdhury"
+            required
+          />
+        </div>
+        <div className="img-container">
+        <label htmlFor="photo">Photo</label>
+        <label htmlFor="photo" id='extra-label' className="custom-file-upload">
+          <Camera size={18} style={{ marginRight: "6px" }} />
+          Upload Photo
+        </label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            onChange={onPhotoChange}
+            accept="image/*"
+          />
+        </div>
+      </div>
+      
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={personalDetails.email}
-        onChange={onChange}
-        placeholder="Enter your email"
-        required
-      />
-
-      <label htmlFor="phone-number">Phone Number</label>
-      <input
-        type="tel"
-        id="phone-number"
-        name="phoneNumber"
-        value={personalDetails.phoneNumber}
-        onChange={onChange}
-        placeholder="Enter your phone number"
-        required
-      />
+      <div className="contact-container">
+        <div className="email-container">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={personalDetails.email}
+            onChange={onChange}
+            placeholder="your.name@gmail.com"
+            required
+          />
+        </div>
+        <div className="phn-container">
+        <label htmlFor="phone-number">Phone Number</label>
+        <input
+          type="tel"
+          id="phone-number"
+          name="phoneNumber"
+          value={personalDetails.phoneNumber}
+          onChange={onChange}
+          placeholder="+8801714902490"
+          required
+        />
+      </div>
+      </div>
+      
 
       <label htmlFor="address">Address</label>
       <input
@@ -53,7 +79,7 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
         name="address"
         value={personalDetails.address}
         onChange={onChange}
-        placeholder="Enter your address"
+        placeholder="Madaripur, Bangladesh | New York, USA"
         required
       />
 
@@ -63,17 +89,8 @@ function PersonalDetails({ personalDetails, onChange, onPhotoChange }) {
         name="summary"
         value={personalDetails.summary}
         onChange={onChange}
-        placeholder="Write a brief personal summary"
+        placeholder="What makes you different? | Career objective"
       ></textarea>
-
-      <label htmlFor="photo">Photo</label>
-      <input
-        type="file"
-        id="photo"
-        name="photo"
-        onChange={onPhotoChange}
-        accept="image/*"
-      />
     </form>
     )}
     </div>
