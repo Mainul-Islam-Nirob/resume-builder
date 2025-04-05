@@ -1,6 +1,7 @@
 import React from 'react';
 import PersonalDetails from './PersonalDetails'; // Example Form Component
 import Education from './Education';
+import Experience from './Experience';
 
 function FormContainer({ formData, setFormData }) {
   const handlePersonalDetailsChange = (e) => {
@@ -32,6 +33,13 @@ function FormContainer({ formData, setFormData }) {
     }));
   };
 
+  const setExperience = (experienceData) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      experience: experienceData,
+    }));
+  };
+
   return (
     <div className="form-container">
       <PersonalDetails
@@ -42,6 +50,10 @@ function FormContainer({ formData, setFormData }) {
       <Education
         education={formData.education}
         setEducation={setEducation}
+      />
+      <Experience 
+        experience={formData.experience}
+        setExperience={setExperience}
       />
     </div>
   );

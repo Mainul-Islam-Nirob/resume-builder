@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Plus, Check, X, Trash2, GraduationCap, ChevronDown, ChevronUp} from 'lucide-react';
-import '../styles/Education.css';
+import { Eye, EyeOff, Plus, Check, X, Trash2, BriefcaseBusiness, ChevronDown, ChevronUp} from 'lucide-react';
+import '../styles/Experience.css';
 
-function Education({ education, setEducation }) {
+function Experience({ experience, setExperience }) {
   const [expanded, setExpanded] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
-    const updated = [...education];
+    const updated = [...experience];
     updated[index][name] = value;
-    setEducation(updated);
+    setExperience(updated);
   };
 
   const handleSave = () => {
@@ -22,47 +22,48 @@ function Education({ education, setEducation }) {
   };
 
   const handleDelete = (index) => {
-    const updated = [...education];
+    const updated = [...experience];
     updated.splice(index, 1);
-    setEducation(updated);
+    setExperience(updated);
     setEditingIndex(null);
   };
 
   const toggleVisibility = (index) => {
-    const updated = [...education];
+    const updated = [...experience];
     updated[index].visible = !updated[index].visible;
-    setEducation(updated);
+    setExperience(updated);
   };
 
-  const addNewEducation = () => {
-    setEducation([
-      ...education,
+  const addNewExperience = () => {
+    setExperience([
+      ...experience,
       {
-        degree: '',
-        school: '',
+        title: '',
+        company: '',
         startDate: '',
         endDate: '',
         location: '',
+        description: '',
         visible: true,
       },
     ]);
-    setEditingIndex(education.length);
+    setEditingIndex(experience.length);
   };
 
   return (
-    <div className="educationSection">
-      <div className="educationHeader" onClick={() => setExpanded(!expanded)}>
-        <h1> <GraduationCap strokeWidth={3} /> Education</h1>
+    <div className="experienceSection">
+      <div className="experienceHeader" onClick={() => setExpanded(!expanded)}>
+        <h1> <BriefcaseBusiness strokeWidth={3} /> Experience</h1>
         {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </div>
 
       {expanded && (
-        <div className="educationContent">
+        <div className="experienceContent">
             <hr className='hr-border' />
-          {education.map((entry, index) => (
-            <div key={index} className="educationEntry">
+          {experience.map((entry, index) => (
+            <div key={index} className="experienceEntry">
               <div className="entryHeader" onClick={() => setEditingIndex(index)}>
-                <h3>{entry.degree || 'Untitled Degree'}</h3>
+                <h3>{entry.title || 'Untitled Designation'}</h3>
                 <span
                   className="visibilityToggle"
                   onClick={(e) => {
@@ -75,21 +76,21 @@ function Education({ education, setEducation }) {
               </div>
 
               {editingIndex === index && (
-                <div className="educationForm">
-                  <label>Degree</label>
+                <div className="experienceForm">
+                  <label>Job Title</label>
                   <input
-                    name="degree"
-                    value={entry.degree}
+                    name="title"
+                    value={entry.title}
                     onChange={(e) => handleChange(index, e)}
-                    placeholder='Degree | Field of Study'
+                    placeholder='Jr. Developer | CEO | Teacher'
                     required
                   />
-                  <label>School</label>
+                  <label>Company</label>
                   <input
-                    name="school"
-                    value={entry.school}
+                    name="company"
+                    value={entry.company}
                     onChange={(e) => handleChange(index, e)}
-                    placeholder='School | College | University'
+                    placeholder='Google | Microsoft | GSTU'
                     required
                   />
                   <div className="date-container">
@@ -111,7 +112,7 @@ function Education({ education, setEducation }) {
                             name="endDate"
                             value={entry.endDate}
                             onChange={(e) => handleChange(index, e)}
-                            placeholder='10-02-2025 | 10 Feb 2025'
+                            placeholder='10-02-2025 | Present'
                             required
                         />
                     </div>
@@ -122,9 +123,19 @@ function Education({ education, setEducation }) {
                     name="location"
                     value={entry.location}
                     onChange={(e) => handleChange(index, e)}
-                    placeholder='Dhaka, Bangladesh | Berlin, Germany'
+                    placeholder='Dhaka, Bangladesh | Silicon Valley, USA'
                     
                   />
+
+                    <label htmlFor="summary">Description</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        value={entry.description}
+                        onChange={(e) => handleChange(index, e)}
+                        placeholder="What was your main task? | What is main your task?"
+                    ></textarea>
+
                   <div className="formActions">
                     <div className="right-btn">
                       <button className="iconButton dltBtn" onClick={() => handleDelete(index)}><Trash2 className='l-icon' size={16} /> Delete</button>
@@ -139,8 +150,8 @@ function Education({ education, setEducation }) {
             </div>
           ))}
           <div className="buttonContainer">
-          <button onClick={addNewEducation} className="addButton">
-            <Plus size={18} /> Education
+          <button onClick={addNewExperience} className="addButton">
+            <Plus size={18} /> Experience
           </button>
           </div>
          
@@ -150,4 +161,4 @@ function Education({ education, setEducation }) {
   );
 }
 
-export default Education;
+export default Experience;
