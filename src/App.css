@@ -1,7 +1,9 @@
 .app {
     display: flex;
-    padding: 10px;
+    /* padding: 10px; */
     gap: 10px;
+    height: 100vh; 
+
 }
 
 .left {
@@ -10,4 +12,7 @@
 
 .right {
     width: 60vw;
+    overflow-y: auto;
+    height: 100vh;
+    padding-right: 5px;
 }
