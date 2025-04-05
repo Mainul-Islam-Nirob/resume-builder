@@ -2,7 +2,7 @@ import React from 'react';
 import { Download, Trash2, FilePlus, FileUser, Sliders, Github } from 'lucide-react';
 import '../styles/Controller.css';
 
-function Controller() {
+function Controller({handleDownload}) {
   return (
     <div className="controller-container">
       <h1 className="controller-title"><FileUser strokeWidth={3} /> Resume <br /> Generator</h1>
@@ -15,7 +15,7 @@ function Controller() {
         <Trash2 size={18} /> Clear
       </button>
 
-      <button className="controller-button download-btn">
+      <button className="controller-button download-btn" onClick={handleDownload}>
         <Download size={18} /> Download
       </button>
 

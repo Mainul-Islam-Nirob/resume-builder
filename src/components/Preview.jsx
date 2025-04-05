@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import '../styles/Preview.css';
 
-function ResumePreview({ personalDetails, education, experience }) {
+const Preview = forwardRef(({ personalDetails, education, experience }, ref) => {
   return (
+    <div className="preview" ref={ref}>
     <div className="resume-preview">
       {/* Header Section */}
       <div className="resume-header">
@@ -56,7 +57,8 @@ function ResumePreview({ personalDetails, education, experience }) {
         </div>
       )}
     </div>
+    </div>
   );
-}
+});
 
-export default ResumePreview;
+export default Preview;
