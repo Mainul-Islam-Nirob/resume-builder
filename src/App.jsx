@@ -67,7 +67,7 @@ function App() {
   const handleDownload = () => {
     const element = previewRef.current;
     const opt = {
-      margin:       0.2,
+      margin:       [-0.15, 0, -0.15, 0], // [top, left, bottom, right] in inches
       filename:     'resume.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 2 },
