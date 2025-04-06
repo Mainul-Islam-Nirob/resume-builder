@@ -9,7 +9,10 @@ const Preview = forwardRef(({ personalDetails, education, experience }, ref) => 
       <div className="resume-header">
         {personalDetails.photo && (
           <img
-            src={URL.createObjectURL(personalDetails.photo)}
+            src={
+                typeof personalDetails.photo === 'string'
+                  ? personalDetails.photo
+                  : URL.createObjectURL(personalDetails.photo)}
             alt="Profile"
             className="profile-photo"
           />

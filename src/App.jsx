@@ -13,7 +13,7 @@ function App() {
       phoneNumber: '+880123-456-7891',
       address: 'Shibchar, Madaripur, BD',
       summary: 'Experienced web developer with a strong background in frontend and backend development.',
-      photo: null,
+      photo: 'default-photo.png',
     },
     education: [
       {
@@ -62,18 +62,6 @@ function App() {
     handleLoadExample(); 
   }, []);
   
-  // const [formData, setFormData] = useState({
-  //   personalDetails: {
-  //     fullName: '',
-  //     email: '',
-  //     phoneNumber: '',
-  //     address: '',
-  //     summary: '',
-  //     photo: null,
-  //   },
-  //   education: [],
-  //   experience: [],
-  // });
 
   const previewRef = useRef();
   const handleDownload = () => {
