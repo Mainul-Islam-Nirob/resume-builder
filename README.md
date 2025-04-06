@@ -4,7 +4,7 @@ A modern and customizable Resume Generator built with React. This app allows use
 
 ### Links
 
-Live Site URL: [Generate Your Resume Here 💼📄](https://mainul-islam-nirob.github.io/give-link-later)
+Live Site URL: [Generate Your Resume Here 💼📄](https://resume-generator-indol-seven.vercel.app/)
 
 ### The Final Output
 

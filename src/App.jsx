@@ -48,7 +48,7 @@ function App() {
         startDate: 'Present',
         endDate: '2024',
         location: 'Remote',
-        description: 'Works on scalable React applications and integrated APIs. Worked on scalable React applications and integrated APIs.',
+        description: 'Works on scalable React applications and integrated APIs.',
         visible: true
       },
       {
