@@ -11,45 +11,62 @@ function App() {
       fullName: 'Nirob Chowdhury',
       email: 'nirbo.chowdhury@dummy.com',
       phoneNumber: '+880123-456-7891',
-      address: 'Shibchar, Madaripur, BD',
+      address: 'Shibchar, Madaripur, Bangladesh',
       summary: 'Experienced web developer with a strong background in frontend and backend development.',
       photo: 'default-photo.png',
     },
     education: [
       {
-        degree: 'Bachelor of Science in Computer Science',
-        school: 'University of Example',
-        startDate: '2016',
-        endDate: '2020',
-        location: 'Example City',
+        degree: 'Bachelor of Arts in English Language and Literture',
+        school: 'Gopalganj Science and Technology University',
+        startDate: '2022',
+        endDate: 'Present',
+        location: 'Gopalganj, Dhaka',
         visible: true
       },
       {
-        degree: 'Bachelor of Science in Computer Science',
-        school: 'University of Example',
-        startDate: '2016',
-        endDate: '2020',
-        location: 'Example City',
+        degree: 'HSC',
+        school: 'Elias Ahmed Chowdhury Degree College',
+        startDate: '2017',
+        endDate: '2019',
+        location: 'Shibchar, Madaripur',
+        visible: true
+      },
+      {
+        degree: 'SSC',
+        school: 'Shibchar Nanda Kumar Model Institution',
+        startDate: '2015',
+        endDate: 'Feb 2017',
+        location: 'Shibchar',
         visible: true
       }
     ],
     experience: [
       {
-        title: 'Frontend Developer',
+        title: 'Sr. Full-Stack Software Developer',
         company: 'Tech Solutions Inc.',
-        startDate: '2020',
-        endDate: '2023',
+        startDate: 'Present',
+        endDate: '2024',
+        location: 'Remote',
+        description: 'Works on scalable React applications and integrated APIs. Worked on scalable React applications and integrated APIs.',
+        visible: true
+      },
+      {
+        title: 'Jr. Software Developer',
+        company: 'ABC Tech.',
+        startDate: '2022',
+        endDate: '2024',
         location: 'Remote',
         description: 'Worked on scalable React applications and integrated APIs.',
         visible: true
       },
       {
-        title: 'Frontend Developer',
-        company: 'Tech Solutions Inc.',
-        startDate: '2020',
-        endDate: '2023',
+        title: 'Freelance Developer',
+        company: 'Random',
+        startDate: '2019',
+        endDate: '2022',
         location: 'Remote',
-        description: 'Worked on scalable React applications and integrated APIs.',
+        description: 'Worked on anything related to programming, software, apps',
         visible: true
       }
 
@@ -67,7 +84,7 @@ function App() {
   const handleDownload = () => {
     const element = previewRef.current;
     const opt = {
-      margin:       [-0.15, 0, -0.15, 0], // [top, left, bottom, right] in inches
+      margin:       [-0.15, 0, -0.2, 0], // [top, left, bottom, right] in inches
       filename:     'resume.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 2 },
